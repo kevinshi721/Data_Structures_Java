@@ -5,6 +5,7 @@
 public class Solution {
 
     public ListNode removeElements(ListNode head, int val) {
+
         while (head != null && head.val == val) {
             ListNode delNode = head;
             head = head.next;
@@ -28,6 +29,7 @@ public class Solution {
     }
 
     public static void main(String[] args) {
+
         int[] nums = {1, 2, 3, 4, 3, 5, 6};
         ListNode head = new ListNode(nums);
         System.out.println(head);

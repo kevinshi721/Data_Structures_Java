@@ -150,6 +150,5 @@ public class LinkedList<E> {
         return res.toString();
     }
 
-
 }
 
