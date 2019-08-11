@@ -209,7 +209,7 @@ public class BinarySearchTree<E extends Comparable<E>> {
     }
 
     public E removeMax() {
-        E res = minimum();
+        E res = maximum();
         root = removeMax(root);
         return res;
     }
@@ -238,6 +238,51 @@ public class BinarySearchTree<E extends Comparable<E>> {
         if (node.right == null)
             return node;
         return maximum(node.right);
+    }
+
+    public void remove(E e) {
+        root = remove(root, e);
+    }
+
+    private Node remove(Node node, E e) {
+
+        if (node == null)
+            return null;
+
+        if (e.compareTo(node.e) < 0) {
+            node.left = remove(node.left, e);
+            return node;
+        } else if (e.compareTo(node.e) > 0) {
+            node.right = remove(node.right, e);
+            return node;
+        } else {
+
+            if (node.left == null) {
+                Node rightNode = node.right;
+                node.right = null;
+                size--;
+                return rightNode;
+            }
+
+            if (node.right == null) {
+                Node leftNode = node.left;
+                node.left = null;
+                size--;
+                return leftNode;
+            }
+
+            // T.Hibbard in 1962
+            Node successor = minimum(node.right);
+            successor.right = removeMin(node.right);
+            size++; // removeMin has size --, but successor point to the minimum
+
+            successor.left = node.left;
+
+            node.left = node.right = null;
+            size--;
+
+            return successor;
+        }
     }
 
     @Override
