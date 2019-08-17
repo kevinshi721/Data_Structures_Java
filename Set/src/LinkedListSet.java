@@ -6,14 +6,14 @@ public class LinkedListSet<E> implements Set<E> {
 
     private LinkedList<E> list;
 
-    public LinkedListSet(){
+    public LinkedListSet() {
         list = new LinkedList<>();
     }
 
 
     @Override
     public void add(E e) {
-        if (!list.contains(e)){
+        if (!list.contains(e)) {
             list.addFirst(e);
         }
     }

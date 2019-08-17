@@ -133,12 +133,12 @@ public class LinkedList<E> {
         return remove(size - 1);
     }
 
-    public void removeElement(E e){
+    public void removeElement(E e) {
 
         Node prev = dummyHead;
 
-        while(prev.next != null){
-            if(prev.next.e.equals(e))
+        while (prev.next != null) {
+            if (prev.next.e.equals(e))
                 break;
             prev = prev.next;
         }
@@ -146,7 +146,7 @@ public class LinkedList<E> {
         Node delNode = prev.next;
         prev.next = delNode;
         delNode.next = null;
-        size --;
+        size--;
     }
 
     @Override
