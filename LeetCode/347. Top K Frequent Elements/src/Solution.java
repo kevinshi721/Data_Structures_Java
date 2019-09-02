@@ -29,7 +29,6 @@ public class Solution {
 
     public List<Integer> topKFrequent(int[] nums, int k) {
 
-
         TreeMap<Integer, Integer> map = new TreeMap<>();
         for (int num : nums) {
             if (map.containsKey(num))
@@ -53,5 +52,4 @@ public class Solution {
             res.add(pq.dequeue().e);
         return res;
     }
-
 }
